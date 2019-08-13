@@ -100,6 +100,49 @@ namespace LinkedList
             return;
         }
 
+        public int Search(int val)
+        {
+            Node node = head;
+            int i = 0;
+            while(node !=null )
+            {
+                i++;
+                if (node.data == val) return i;
+                else
+                    node = node.next;
+            }
+
+            return 0; //Not found
+        }
+
+        /* Given a key, deletes the first occurrence of key in linked list */
+        public void DeleteNode(int key)
+        {
+            // Store head node 
+            Node temp = head, prev = null;
+
+            // If head node itself holds the key to be deleted 
+            if (temp != null && temp.data == key)
+            {
+                head = temp.next; // Changed head 
+                return;
+            }
+
+            // Search for the key to be deleted, keep track of the 
+            // previous node as we need to change temp.next 
+            while (temp != null && temp.data != key)
+            {
+                prev = temp;
+                temp = temp.next;
+            }
+
+            // If key was not present in linked list 
+            if (temp == null) return;
+
+            // Unlink the node from linked list 
+            prev.next = temp.next;
+        }
+
 
         public Node GetNode(int position)
         {
@@ -165,6 +208,21 @@ namespace LinkedList
             Console.WriteLine();
             //Print linked list
             linkedList.PrintList();
+
+
+            //Search location
+            int position = linkedList.Search(20);
+            //Print new line
+            Console.WriteLine();
+            Console.WriteLine(position);
+
+            //Delete node
+            linkedList.DeleteNode(25);
+            //Print new line
+            Console.WriteLine();
+            //Print linked list
+            linkedList.PrintList();
+
 
 
             Console.ReadKey();
