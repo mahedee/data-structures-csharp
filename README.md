@@ -1,2 +1,3 @@
 # data-structures-csharp
-Data structures code using c#
+* Remove this repo
+* Already shifted to https://github.com/mahedee/datastructures-algorithms
